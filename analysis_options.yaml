@@ -1,0 +1,16 @@
+include: package:lints/recommended.yaml
+
+analyzer:
+  exclude: 
+    - build/**
+    - lib/src/openssl.dart
+  language:
+    strict-casts: true
+
+formatter:
+  line_length: 80
+
+linter:
+  rules:
+    - prefer_double_quotes
+    - cancel_subscriptions

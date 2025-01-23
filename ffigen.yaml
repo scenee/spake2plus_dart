@@ -1,0 +1,12 @@
+output: 'lib/src/openssl.dart'
+name: 'OpenSSL'
+# You have to specify the path to the header files of the C library you want to bind.
+compiler-opts:
+  - '-I/opt/local/libexec/openssl3/include/'
+headers:
+  entry-points:
+    - '/opt/local/libexec/openssl3/include/openssl/bn.h'
+    - '/opt/local/libexec/openssl3/include/openssl//core_names.h'
+    - '/opt/local/libexec/openssl3/include/openssl/evp.h'
+    - '/opt/local/libexec/openssl3/include/openssl/ec.h'
+    - '/opt/local/libexec/openssl3/include/openssl/kdf.h'
