@@ -1,10 +1,10 @@
 # spake2plus
 
-A Dart package for SPAKE2+, an Augmented Password-Authenticated Key Exchange (PAKE) protocol [[RFC9383](https://datatracker.ietf.org/doc/rfc9383/)]. Supports Raspeberry Pi OS and macOS for now.
+A Dart package for SPAKE2+, an Augmented Password-Authenticated Key Exchange (PAKE) protocol [[RFC9383](https://datatracker.ietf.org/doc/rfc9383/)]. Supports Raspberry Pi OS and macOS for now.
 
-## Depencendies
+## Dependencies
 
-This package uses [OpenSSL v3.4](https://github.com/openssl/openssl/releases/tag/openssl-3.4.0) via [dart:ffi](https://api.dart.dev/dart-ffi/dart-ffi-library.html).
+This package uses OpenSSL v3.0 and later via [dart:ffi](https://api.dart.dev/dart-ffi/dart-ffi-library.html).
 
 ## Supported PBKDF
 
@@ -13,7 +13,7 @@ This package uses [OpenSSL v3.4](https://github.com/openssl/openssl/releases/tag
 | Scrypt [[RFC7914](https://datatracker.ietf.org/doc/html/rfc7914.html)] | ✅ |
 | Argon2id [[RFC9106](https://datatracker.ietf.org/doc/rfc9106/)] | ❌ |
 
-## Supporte ECC curves and Hash, KDF and Mac algorithms
+## Supported ECC Curves and Hash, KDF, and MAC Algorithms
 
 | G | Hash | KDF | MAC | Status |
 | :--- | :---: | :---: | :---: | :---: |
@@ -38,9 +38,9 @@ This package uses [OpenSSL v3.4](https://github.com/openssl/openssl/releases/tag
 1. Install [Dart](https://dart.dev/get-dart)/[Flutter](https://docs.flutter.dev/get-started/install) sdk
 2. Install `libcrypto`
 
-```sh
-sudo apt-get install libssl-dev
-```
+  ```sh
+  sudo apt-get install libssl-dev
+  ```
 
 3. Check the path to `libcrypto.so`
 4. Pass the library path into `Spake2plus` class constructor.
@@ -50,10 +50,10 @@ sudo apt-get install libssl-dev
 1. Install [Dart](https://dart.dev/get-dart)/[Flutter](https://docs.flutter.dev/get-started/install) sdk
 2. Install `openssl` via Homebrew or MacPorts
 
-```sh
-sudo brew install openssl@3 # Homebrew
-sudo port install openssl3  # MacPorts
-```
+  ```sh
+  sudo brew install openssl@3 # Homebrew
+  sudo port install openssl3  # MacPorts
+  ```
 
 3. Check the path to `libcrypto.3.dylib`
 4. Pass the library path into `Spake2plus` class constructor.
