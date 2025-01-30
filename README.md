@@ -6,6 +6,10 @@ A Dart package for SPAKE2+, an Augmented Password-Authenticated Key Exchange (PA
 
 This package uses OpenSSL v3.0 and later via [dart:ffi](https://api.dart.dev/dart-ffi/dart-ffi-library.html).
 
+## Usage
+
+A simple way to understand the package is to look at the [example code](example/main.dart) and [test cases](test). Even if you don't understand [RFC9383](https://datatracker.ietf.org/doc/rfc9383/), you can get a general idea of how to use it.
+
 ## Supported PBKDF
 
 | PBKDF | Status |
@@ -31,29 +35,28 @@ This package uses OpenSSL v3.0 and later via [dart:ffi](https://api.dart.dev/dar
 * [[RFC5869](https://datatracker.ietf.org/doc/html/rfc5869)]: HKDF-SHA256/SHA512
 * [[RFC4493](https://datatracker.ietf.org/doc/html/rfc4493)]: HMAC-SHA256/SHA512
 
-## Getting started
+## Getting Started
 
 ### Raspberry Pi OS
 
-1. Install [Dart](https://dart.dev/get-dart)/[Flutter](https://docs.flutter.dev/get-started/install) sdk
-2. Install `libcrypto`
+1. Install [Dart](https://dart.dev/get-dart)/[Flutter](https://docs.flutter.dev/get-started/install) SDK.
+2. Install `libcrypto`:
 
-  ```sh
-  sudo apt-get install libssl-dev
-  ```
+    ```sh
+    sudo apt-get install libssl-dev
+    ```
 
-3. Check the path to `libcrypto.so`
-4. Pass the library path into `Spake2plus` class constructor.
+3. Check the path to `libcrypto.so`.
+4. Pass the library path into the `Spake2plus` class constructor.
 
 ### macOS
 
-1. Install [Dart](https://dart.dev/get-dart)/[Flutter](https://docs.flutter.dev/get-started/install) sdk
-2. Install `openssl` via Homebrew or MacPorts
+1. Install [Dart](https://dart.dev/get-dart)/[Flutter](https://docs.flutter.dev/get-started/install) SDK.
+2. Install `openssl` via Homebrew or MacPorts:
 
-  ```sh
-  sudo brew install openssl@3 # Homebrew
-  sudo port install openssl3  # MacPorts
-  ```
+    ```sh
+    brew install openssl@3 # Homebrew
+    ```
 
-3. Check the path to `libcrypto.3.dylib`
-4. Pass the library path into `Spake2plus` class constructor.
+3. Check the path to `libcrypto.dylib`.
+4. Pass the library path into the `Spake2plus` class constructor.
