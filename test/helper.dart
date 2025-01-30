@@ -1,6 +1,5 @@
 import "dart:ffi" as ffi;
 import "dart:io";
-import "package:path/path.dart" as path;
 import "dart:typed_data";
 
 import "package:yaml/yaml.dart";
@@ -44,7 +43,7 @@ Future<Map<String, String>> loadTestVectors(
   String filename,
   String test,
 ) async {
-  final file = File(path.join("test", "test_vectors", "$filename.yaml"));
+  final file = File("test/test_vectors/$filename.yaml");
   final yamlString = await file.readAsString();
   final yamlMap = loadYaml(yamlString);
   final vectors = yamlMap[test]["vectors"];
