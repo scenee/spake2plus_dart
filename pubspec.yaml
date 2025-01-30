@@ -1,6 +1,6 @@
 name: spake2plus
 description: A Dart library for SPAKE2+ protocol
-version: 1.0.0
+version: 1.0.1
 repository: https://github.com/scenee/spake2plus_dart
 
 # This package supports only Linux and macOS.
