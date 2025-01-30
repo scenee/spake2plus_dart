@@ -13,7 +13,7 @@ void main() {
     setUpAll(() {});
 
     test("deriveKey 1", () async {
-      openssl = OpenSSL(ffi.DynamicLibrary.open(getLibraryPath()));
+      openssl = OpenSSL(ffi.DynamicLibrary.open(await getLibraryPath()));
       final testVectors = await loadTestVectors("scrypt", "dk1");
       final dk = openssl.deriveScryptKey("", "", 16, 1, 1, 64);
       final res = dk.toBlockedHexString(64, 16);

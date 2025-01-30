@@ -3,20 +3,47 @@ import "dart:ffi";
 import "dart:io";
 import "dart:typed_data";
 
-import "package:path/path.dart" as path;
-
 import "package:ffi/ffi.dart";
 
-String getLibraryPath() {
+Future<String> getLibraryPath() async {
+  String path = "";
   if (Platform.isLinux) {
-    return path.join(
-        "/usr/lib/aarch64-linux-gnu/", "libcrypto.so"); // For Linux
+    for (final dir in [
+      "/usr/lib/x86_64-linux-gnu",
+      "/usr/lib/aarch64-linux-gnu/"
+    ]) {
+      final List<FileSystemEntity> entities = await Directory(dir)
+          .list(recursive: true, followLinks: false)
+          .where((e) => e.path.contains("libcrypto.so"))
+          .toList();
+      if (entities.isNotEmpty) {
+        path = entities.first.path;
+        break;
+      }
+    }
   } else if (Platform.isMacOS) {
-    return path.join(
-        "/opt/local/libexec/openssl3/lib/", "libcrypto.3.dylib"); // For Mac
-  } else {
+    for (final dir in [
+      "/opt/homebrew/Cellar/openssl@3", // Homebrew
+      "/opt/local/libexec/openssl3", // MacPorts
+    ]) {
+      final directory = Directory(dir);
+      if (!await directory.exists()) {
+        continue;
+      }
+      final List<FileSystemEntity> entities = await directory
+          .list(recursive: true, followLinks: false)
+          .where((e) => e.path.contains("libcrypto.dylib"))
+          .toList();
+      if (entities.isNotEmpty) {
+        path = entities.first.path;
+        break;
+      }
+    }
+  }
+  if (path.isEmpty) {
     throw UnsupportedError("Unsupported platform");
   }
+  return path;
 }
 
 Uint8List hex2bytes(String? hexString) {

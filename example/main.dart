@@ -5,14 +5,14 @@ import "dart:typed_data";
 
 import "package:spake2plus/spake2plus.dart";
 
-void main() {
+void main() async {
   // Offline registration phase
   // M and N are from Table 1 (Section 4)
   final bytesM = hex2bytes(
       "02886e2f97ace46e55ba9dd7242579f2993b64e16ef3dcab95afd497333d8fa12f");
   final bytesN = hex2bytes(
       "03d8bbd6c639c62937b04d997f38c3770719c629d7014d49a24b4f98baa1292b49");
-  final spake2plus = Spake2plus(getLibraryPath(), bytesM, bytesN);
+  final spake2plus = Spake2plus(await getLibraryPath(), bytesM, bytesN);
   final scryptParams =
       ScryptParameters("pleaseletmein", "yellowsubmarines", 32768, 8, 1, 80);
   final (w0, w1) = spake2plus.computeWitnesses(scryptParams);

@@ -14,7 +14,7 @@ void main() {
     test("SPAKE2+-P256-SHA256-HKDF-SHA256-HMAC-SHA256", () async {
       final testName = "SPAKE2+-P256-SHA256-HKDF-SHA256-HMAC-SHA256";
       final spake2plus =
-          Spake2plus(getLibraryPath(), hex2bytes(M), hex2bytes(N));
+          Spake2plus(await getLibraryPath(), hex2bytes(M), hex2bytes(N));
       final testVectors = await loadTestVectors("spake2plus", testName);
       final w0 = hex2bytes(testVectors["w0"]);
       final w1 = hex2bytes(testVectors["w1"]);
@@ -75,7 +75,7 @@ void main() {
     test("SPAKE2+-P256-SHA512-HKDF-SHA512-HMAC-SHA512", () async {
       final testName = "SPAKE2+-P256-SHA512-HKDF-SHA512-HMAC-SHA512";
       final spake2plus =
-          Spake2plus(getLibraryPath(), hex2bytes(M), hex2bytes(N));
+          Spake2plus(await getLibraryPath(), hex2bytes(M), hex2bytes(N));
       final testVectors = await loadTestVectors("spake2plus", testName);
       final w0 = hex2bytes(testVectors["w0"]);
       final w1 = hex2bytes(testVectors["w1"]);
@@ -136,7 +136,7 @@ void main() {
     test("SPAKE2+-P256-SHA256-HKDF-SHA256-CMAC-AES-128", () async {
       final testName = "SPAKE2+-P256-SHA256-HKDF-SHA256-CMAC-AES-128";
       final spake2plus =
-          Spake2plus(getLibraryPath(), hex2bytes(M), hex2bytes(N));
+          Spake2plus(await getLibraryPath(), hex2bytes(M), hex2bytes(N));
       final testVectors = await loadTestVectors("spake2plus", testName);
       final w0 = hex2bytes(testVectors["w0"]);
       final w1 = hex2bytes(testVectors["w1"]);
@@ -197,7 +197,7 @@ void main() {
     test("SPAKE2+-P256-SHA512-HKDF-SHA512-CMAC-AES-128", () async {
       final testName = "SPAKE2+-P256-SHA512-HKDF-SHA512-CMAC-AES-128";
       final spake2plus =
-          Spake2plus(getLibraryPath(), hex2bytes(M), hex2bytes(N));
+          Spake2plus(await getLibraryPath(), hex2bytes(M), hex2bytes(N));
       final testVectors = await loadTestVectors("spake2plus", testName);
       final w0 = hex2bytes(testVectors["w0"]);
       final w1 = hex2bytes(testVectors["w1"]);

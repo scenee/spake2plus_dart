@@ -9,16 +9,16 @@ import "helper.dart";
 
 void main() {
   group("spake2plus", () {
-    test("randome String", () {
+    test("randome String", () async {
       final spake2plus =
-          Spake2plus(getLibraryPath(), Uint8List(0), Uint8List(0));
+          Spake2plus(await getLibraryPath(), Uint8List(0), Uint8List(0));
       final randomString = spake2plus.randomString(16);
       expect(randomString.length, 16);
     });
 
-    test("randome valid scalar", () {
+    test("randome valid scalar", () async {
       final spake2plus =
-          Spake2plus(getLibraryPath(), Uint8List(0), Uint8List(0));
+          Spake2plus(await getLibraryPath(), Uint8List(0), Uint8List(0));
       final p = spake2plus.randomValidScalar();
       expect(p.length, 32);
       expect(p, isNot(Uint8List(32)));
@@ -26,7 +26,7 @@ void main() {
 
     test("ec point uncompression", () async {
       final spake2plus =
-          Spake2plus(getLibraryPath(), Uint8List(0), Uint8List(0));
+          Spake2plus(await getLibraryPath(), Uint8List(0), Uint8List(0));
 
       final ret = spake2plus.convertToUncompressedECPoint(
         hex2bytes(
@@ -51,7 +51,7 @@ void main() {
 
     test("witness computation", () async {
       final spake2plus =
-          Spake2plus(getLibraryPath(), Uint8List(0), Uint8List(0));
+          Spake2plus(await getLibraryPath(), Uint8List(0), Uint8List(0));
 
       final testVectors = await loadTestVectors("spake2plus", "witness");
       final scryptParams = ScryptParameters(
@@ -66,7 +66,7 @@ void main() {
     test("prover sample", () async {
       final testVectors = await loadTestVectors("spake2plus", "prover");
       final spake2plus = Spake2plus(
-        getLibraryPath(),
+        await getLibraryPath(),
         hex2bytes(testVectors["M"]),
         hex2bytes(testVectors["N"]),
       );
@@ -91,7 +91,7 @@ void main() {
     test("verifier sample", () async {
       final testVectors = await loadTestVectors("spake2plus", "verifier");
       final spake2plus = Spake2plus(
-        getLibraryPath(),
+        await getLibraryPath(),
         hex2bytes(testVectors["M"]),
         hex2bytes(testVectors["N"]),
       );
