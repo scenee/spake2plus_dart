@@ -3,6 +3,11 @@ description: A Dart library for SPAKE2+ protocol
 version: 1.0.0
 repository: https://github.com/scenee/spake2plus_dart
 
+# This package supports only Linux and macOS.
+platforms:
+  linux:
+  macos:
+
 environment:
   sdk: ^3.5.3
 
