@@ -12,6 +12,10 @@ Future<String> getLibraryPath() async {
       "/usr/lib/x86_64-linux-gnu",
       "/usr/lib/aarch64-linux-gnu/"
     ]) {
+      final directory = Directory(dir);
+      if (!await directory.exists()) {
+        continue;
+      }
       final List<FileSystemEntity> entities = await Directory(dir)
           .list(recursive: true, followLinks: false)
           .where((e) => e.path.contains("libcrypto.so"))
