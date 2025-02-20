@@ -1,10 +1,16 @@
 # spake2plus
 
-A Dart package for SPAKE2+, an Augmented Password-Authenticated Key Exchange (PAKE) protocol [[RFC9383](https://datatracker.ietf.org/doc/rfc9383/)]. Supports Raspberry Pi OS and macOS for now.
+A Dart package for SPAKE2+, an Augmented Password-Authenticated Key Exchange (PAKE) protocol [[RFC9383](https://datatracker.ietf.org/doc/rfc9383/)]. Supports Linux and macOS for now.
 
 ## Dependencies
 
 This package uses OpenSSL v3.0 and later via [dart:ffi](https://api.dart.dev/dart-ffi/dart-ffi-library.html).
+
+## Tested environments
+
+* Ubuntu 24.04.1 LTS
+* Raspberry Pi OS (64bit, Kernel 6.6, Debian 12(bookworm))
+* macOS 14/15
 
 ## Usage
 
