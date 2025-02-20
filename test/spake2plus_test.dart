@@ -1,4 +1,5 @@
 // ignore_for_file: non_constant_identifier_names, constant_identifier_names
+import "dart:math";
 import "dart:typed_data";
 
 import "package:ffi/ffi.dart";
@@ -151,6 +152,14 @@ void main() {
 }
 
 extension Test on Spake2plus {
+  String randomString(int length) {
+    final rand = Random.secure();
+    final codeUnits = List.generate(length, (index) {
+      return rand.nextInt(26) + 97;
+    });
+    return String.fromCharCodes(codeUnits);
+  }
+
   Uint8List deriveK(
       Uint8List X, Uint8List Y, Uint8List Z, Uint8List V, Uint8List w0) {
     final kinput = [

@@ -1,5 +1,4 @@
 import "dart:ffi" as ffi;
-import "dart:math";
 import "dart:typed_data";
 import "package:ffi/ffi.dart";
 import "package:spake2plus/src/scrypt.dart";
@@ -86,14 +85,6 @@ class Spake2plus {
     calloc.free(dk);
 
     return (w0Bytes, w1Bytes);
-  }
-
-  String randomString(int length) {
-    final rand = Random.secure();
-    final codeUnits = List.generate(length, (index) {
-      return rand.nextInt(26) + 97;
-    });
-    return String.fromCharCodes(codeUnits);
   }
 
   Uint8List randomValidScalar() {
