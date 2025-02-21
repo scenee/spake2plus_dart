@@ -3,6 +3,7 @@ import "dart:ffi" as ffi;
 import "package:ffi/ffi.dart";
 import "package:spake2plus/spake2plus.dart";
 import "package:spake2plus/src/openssl.dart";
+import "package:spake2plus/src/util.dart";
 import "package:test/test.dart";
 
 import "helper.dart";

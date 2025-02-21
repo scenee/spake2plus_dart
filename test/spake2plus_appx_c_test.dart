@@ -2,6 +2,7 @@
 import "dart:typed_data";
 
 import "package:spake2plus/spake2plus.dart";
+import "package:spake2plus/src/util.dart";
 import "package:test/test.dart";
 
 import "helper.dart";
